@@ -1,4 +1,5 @@
 import { Table,Row,Col,Card } from 'antd';
+import {FileAddOutlined} from '@ant-design/icons'
 import React from 'react';
 
 const columns = [
@@ -85,21 +86,26 @@ const columns = [
 export default function (){
   return (
     <div style={{width:'80%',margin:'auto'}}>
-      {/* <Row>
-        <Col span={18} push={6}>
-          <TableContent />
+
+     <Row>
+        <Col flex={3}>
+        <TableContent />
         </Col>
-        <Col span={6} pull={18}>
-          right
+        <Col flex={2}>
+          <div>
+            <h2 style={{ textAlign: 'right' }}>Play</h2>
+          </div>
+          <InputCard title="ETH Scalp" />
+          <InputCard title="ETH Scalp2" />
+          <div style={{ clear: 'both' }}></div>
+          <AddCard title="add new" />
         </Col>
-      </Row> */}
-      <Row>
-      <Col flex={3}><TableContent /></Col>
-      <Col flex={2}><InputCard title="ETH Scalp"/></Col>
-    </Row>
-    </div>
+      </Row> 
+
+      </div>
   );
 }
+
 
 
 const TableContent: React.FC<{
@@ -116,11 +122,34 @@ const InputCard :React.FC<{
   title : string
 }>=({ title })=>{
   return (
-    <div className="site-card-border-less-wrapper">
-    <Card title={title} bordered={false} style={{ width: 260 }}>
+    <div  style={{float:'right',paddingLeft:'20px'}}>
+      
+    <Card title={title} bordered={true} style={{ width: '200px' }}>
       <p>Card content</p>
       <p>Card content</p>
     </Card>
+
   </div>
+  );
+}
+
+const AddCard :React.FC<{
+  title : string
+}>=({ title })=>{
+  return (
+    <div>
+      <div style={{ float: 'right', paddingLeft: '20px', paddingTop: '20px' }}>
+        <Card bordered={false} style={{ width: '200px' }}>
+        </Card>
+      </div>
+      <div style={{ float: 'right', paddingLeft: '20px', paddingTop: '20px' }}>
+        <Card bordered={true} style={{ width: '200px' }}>
+          <div style={{ textAlign: 'center', fontSize: '40' }}>
+            <FileAddOutlined style={{ fontSize: '48px', }} />
+          </div>
+        </Card>
+      </div>
+
+    </div>
   );
 }

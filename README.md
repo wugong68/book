@@ -13,3 +13,10 @@ Start the dev server,
 ```bash
 $ yarn start
 ```
+
+
+add libs
+~~~
+npm install --save @ant-design/icons
+
+~~~
